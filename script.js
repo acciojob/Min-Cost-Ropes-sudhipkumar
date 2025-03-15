@@ -52,7 +52,7 @@ class MinHeap {
     }
 }
 
-function minCost(arr) {
+function mincost(arr) {
     if (arr.length === 1) return 0;
 
     let minHeap = new MinHeap();
@@ -91,6 +91,8 @@ function calculateMinCost() {
     }
 
     console.log("User input:", arr);
-    const result = minCost(arr);
+    const result = mincost(arr);
     document.getElementById("result").textContent = "Minimum cost to connect ropes: " + result;
 }
+
+module.exports = mincost;
