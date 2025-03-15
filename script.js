@@ -56,9 +56,13 @@ function mincost(arr) {
     if (arr.length === 1) return 0;
 
     let minHeap = new MinHeap();
+    console.log("Initial array:", arr);
+
     for (let num of arr) {
         minHeap.push(num);
     }
+
+    console.log("MinHeap after insertion:", minHeap.heap);
 
     let totalCost = 0;
 
@@ -67,9 +71,12 @@ function mincost(arr) {
         let second = minHeap.pop();
         let cost = first + second;
         totalCost += cost;
+        console.log(`Selected ropes: ${first}, ${second} | Cost: ${cost} | Total Cost: ${totalCost}`);
         minHeap.push(cost);
+        console.log("MinHeap after merging:", minHeap.heap);
     }
 
+    console.log("Final Total Cost:", totalCost);
     return totalCost;
 }
 
@@ -78,10 +85,12 @@ function calculateMinCost() {
     const arr = input.split(",").map(num => parseInt(num.trim(), 10)).filter(num => !isNaN(num));
 
     if (arr.length === 0) {
+        console.log("Invalid input: No numbers provided.");
         document.getElementById("result").textContent = "Please enter valid numbers.";
         return;
     }
 
+    console.log("User input:", arr);
     const result = mincost(arr);
     document.getElementById("result").textContent = "Minimum cost to connect ropes: " + result;
 }
