@@ -1,7 +1,10 @@
+const { MinPriorityQueue } = require('@datastructures-js/priority-queue');
+
 function mincost(arr) {
+    if (arr.length === 0) return 0; // Edge case
     if (arr.length === 1) return 0; // No cost if only one rope
 
-    const minHeap = new MinPriorityQueue(); // Use a min heap
+    const minHeap = new MinPriorityQueue({ priority: x => x }); // Min heap
 
     // Insert all elements into the min heap
     for (let num of arr) {
@@ -23,3 +26,7 @@ function mincost(arr) {
 }
 
 module.exports = mincost;
+
+// Test Cases
+console.log(mincost([4, 3, 2, 6])); // Output: 29
+console.log(mincost([1, 2, 3, 4, 5])); // Output: 33
