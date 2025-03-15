@@ -68,8 +68,8 @@ function mincost(arr) {
 
     while (minHeap.size() > 1) {
         let first = minHeap.pop();
-        let second = minHeap.pop();
-        let cost = first + second;
+let second = minHeap.size() > 0 ? minHeap.pop() : 0;
+let cost = first + second;
         totalCost += cost;
         console.log(`Selected ropes: ${first}, ${second} | Cost: ${cost} | Total Cost: ${totalCost}`);
         minHeap.push(cost);
